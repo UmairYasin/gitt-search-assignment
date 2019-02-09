@@ -1,0 +1,8 @@
+<form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+  <div class="search-container">
+    <mat-form-field class="col-md-8">
+      <input matInput placeholder="Search Git Users" formControlName="query">
+    </mat-form-field>
+    <button [disabled]="!form.valid" type="submit" mat-raised-button color="primary" class="search-btn">Search</button>
+  </div>
+</form>

@@ -1,0 +1,16 @@
+<h3>Total Count: {{userList.total_count}}</h3>
+<mat-nav-list>
+  <mat-list-item *ngFor="let item of userList.items | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" class="list-item">
+    <a mat-list-item [href]="item.html_url" target="_blank">
+    <img matListAvatar [src]="item.avatar_url" alt="Image Loading...">
+    <h3 matLine> {{item.login}} {{item.name ? '/': ''}} {{item.name}} </h3>
+    <p matLine>
+      <b>Followers: </b> {{item.followers}}
+    </p>
+    <p matLine>
+      <b>Following: </b> {{item.following}}
+    </p>
+    </a>
+  </mat-list-item>
+</mat-nav-list>
+<pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
